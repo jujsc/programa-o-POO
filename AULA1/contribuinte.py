@@ -40,27 +40,27 @@ class contribuinte:
         return self.renda - self.dependentes * 189.59
     
     def aliquota(self):
-        if self.renda >= 0 and self.renda <=1903.98:
+        if self.base() >= 0 and self.base() <=1903.98:
             return 0
-        if self.renda >= 1903.99 and self.renda <=2826.65:
+        if self.base() >= 1903.99 and self.base() <=2826.65:
             return 0.075
-        if self.renda >= 2826.66 and self.renda <=3751.05:
+        if self.base() >= 2826.66 and self.base() <=3751.05:
             return 0.15
-        if self.renda >= 3751.06 and self.renda <=4664.68:
+        if self.base() >= 3751.06 and self.base() <=4664.68:
             return 0.225
-        if self.renda >= 4664.69:
+        if self.base() >= 4664.69:
             return 0.275
     
     def deducao(self):
-        if self.renda >= 0 and self.renda <=1903.98:
+        if self.base() >= 0 and self.base() <=1903.98:
             return 0
-        if self.renda >= 1903.99 and self.renda <=2826.65:
+        if self.base() >= 1903.99 and self.base() <=2826.65:
             return 142.80
-        if self.renda >= 2826.66 and self.renda <=3751.05:
+        if self.base() >= 2826.66 and self.base() <=3751.05:
             return 354.80
-        if self.renda >= 3751.06 and self.renda <=4664.68:
+        if self.base() >= 3751.06 and self.base() <=4664.68:
             return 636.13
-        if self.renda >= 4664.69:
+        if self.base() >= 4664.69:
             return 869.36
     
     def imposto(self):
