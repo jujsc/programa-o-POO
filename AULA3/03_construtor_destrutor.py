@@ -1,5 +1,5 @@
 class Pessoa():
-    def __init__(self, nome, sexo):
+    def __init__(self, nome, sexo): #self referencia ao objeto que está disparando 
         self._nome = nome
         self._sexo = sexo
         print(f'Criada pessoa "{self._nome}" com sexo "{self._sexo}"')
