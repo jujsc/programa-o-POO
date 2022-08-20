@@ -5,7 +5,6 @@ class Pessoa():
         self._cor_olhos = cor_olhos
         self._pai = pai
         self._mae = mae 
-        #print(f'Criada pessoa "{self._nome}" com sexo "{self._sexo}"')
 
     def set_sexo(self, sexo):
         sexo = sexo.upper()
@@ -49,20 +48,58 @@ class Pessoa():
             return 'Indefinido'
     
     def imprime_dados(self):
-        print("Nome: ", self._nome)
-        print("Sexo: ", self._sexo)
-        print("Cor dos olhos: ", self._cor_olhos)
+        print("Nome:", self._nome)
+        print("Sexo:", self.get_sexo_str())
+        print("Cor dos olhos:", self.get_cor_olhos_str())
         if self._pai == None:
             print("Pai: Desconhecido")
         else:
-            print("Pai: ", self._pai)
+            print("Pai:", self._pai._nome)
         if self._mae == None:
             print("Mãe: Desconhecido")
         else:
-            print("Mãe: ", self._mae)
+            print("Mãe:", self._mae)
+    
+    def gera_pessoa(self, nome, sexo, pai):
+        if self._sexo == "F" and pai._sexo == "M":
+            if self._cor_olhos == "C" and pai._cor_olhos == "C":
+                cor_olhos = "C"
+            if self._cor_olhos == "C" and pai._cor_olhos == "A":
+                cor_olhos = "C"
+            if self._cor_olhos == "C" and pai._cor_olhos == "V":
+                cor_olhos = "C"
+            if self._cor_olhos == "V" and pai._cor_olhos == "C":
+                cor_olhos = "C"
+            if self._cor_olhos == "A" and pai._cor_olhos == "C":
+                cor_olhos = "C"
+            if self._cor_olhos == "A" and pai._cor_olhos == "A":
+                cor_olhos = "A"
+            if self._cor_olhos == "V" and pai._cor_olhos == "V":
+                cor_olhos = "V"
+            if self._cor_olhos == "V" and pai._cor_olhos == "A":
+                cor_olhos = "V"
+            if self._cor_olhos == "A" and pai._cor_olhos == "V":
+                cor_olhos = "V"
+            p3 = Pessoa(nome,sexo,cor_olhos,pai._nome,self._nome)
+            p3._nome = nome
+            p3._sexo = sexo
+            p3._pai = pai
+            p3._cor_olhos = cor_olhos
+            p3.imprime_dados()
+        else:
+            print("Impossível gerar pessoa.")
         
-#PESSOA NÃO TEM PAI E MÃE, POR COMO DESCONHECIDO (IFS)
 if __name__ == '__main__':
     p1 = Pessoa('Roger', 'M', "C")
     p1.imprime_dados()
+    print("-"*30)
+    p1.gera_pessoa('José', 'M',p1)
+    print("-"*30)
+    p2 = Pessoa('Maria', 'F', 'C')
+    p2.imprime_dados()
+    print("-"*30)
+    p2.gera_pessoa('José', 'M', p1)
+    print("-"*30)
+    p2.gera_pessoa('Rafaela', 'F', p1)
+    
     
