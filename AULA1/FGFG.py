@@ -49,7 +49,7 @@ class Pessoa():
             return 'Indefinido'
     
     def imprime_dados(self):
-        print("Nome: ", self._nome())
+        print("Nome: ", self._get_nome())
         print("Sexo: ", self._sexo())
         print("Cor dos olhos: ", self._cor_olhos())
         if self._pai == None:
