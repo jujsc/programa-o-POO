@@ -1,3 +1,4 @@
+
 class Pessoa():
     def __init__(self, nome, sexo, cor_olhos, pai = None, mae = None): #self referencia ao objeto que está disparando 
         self._nome = nome
@@ -101,5 +102,5 @@ if __name__ == '__main__':
     p2.gera_pessoa('José', 'M', p1)
     print("-"*30)
     p2.gera_pessoa('Rafaela', 'F', p1)
-    
+
     
