@@ -1,7 +1,7 @@
 class Veiculo:
-    def __init__(self, tipo, peso):
-        self._tipo = tipo
-        self._peso = peso
+    def __init__(self, nome, valor):
+        self._nome = nome
+        self._valor = valor
 
     def set_tipo(self, tipo):
         tipo = tipo.upper()

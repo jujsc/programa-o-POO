@@ -1,10 +1,8 @@
 class Pessoa():
-    def __init__(self, nome, sexo, cor_olhos, pai = None, mae = None): #self referencia ao objeto que está disparando 
-        self._nome = nome
+    def __init__(self, altura, peso, sexo): #self referencia ao objeto que está disparando 
+        self._altura = altura
+        self._altura = altura
         self._sexo = sexo
-        self._cor_olhos = cor_olhos
-        self._pai = pai
-        self._mae = mae 
 
     def set_sexo(self, sexo):
         sexo = sexo.upper()
