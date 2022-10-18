@@ -25,5 +25,5 @@ if __name__ == '__main__':
     tr = TrianguloRetangulo()
     tr.set_cat1(cat1)
     tr.set_cat2(cat2)
-    area = tr.area()
+    area = tr.area() #calcular e devolver a area
     print('Área do triângulo: {:.3f}'.format(area))
