@@ -1,2 +1,4 @@
-nome;sexo;altura;peso
+nome;sexo;idade;altura
 Pedro;M;42;1.76
+Marcio;M;50;1.86
+Maria;F;32;1.7
