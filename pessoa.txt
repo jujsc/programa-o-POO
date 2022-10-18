@@ -1,0 +1,2 @@
+nome;sexo;altura;peso
+Pedro;M;42;1.76
