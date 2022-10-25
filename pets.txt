@@ -1,0 +1,4 @@
+id;nome;sexo;tipo
+1;Zeca;M;Pássaro
+2;Fred;M;Cão
+3;Lua;F;Gato

@@ -1,0 +1,4 @@
+id;nome;sexo;pet
+1;Pedro;M;2
+2;Maria;F;3
+3;Roberto;M;1
