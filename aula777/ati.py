@@ -41,11 +41,17 @@ class Pet:
     print('Sexo:', self._sexo)
     print('Tipo:', self._tipo)
 
-def localiza_pet(id):
+  def localiza_pet(self,id):
     for pet in pets:
         if pet.get_id() == id:
             return pet
     return None
+  
+  def cadastrar_pet(self,nome,sexo,tipo):
+    list = [self.get_id(), "-",nome,"-",sexo,"-",tipo]
+    for i in list:
+
+
 
 if __name__ == '__main__':
     pets = []
