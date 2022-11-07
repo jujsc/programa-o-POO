@@ -31,16 +31,16 @@ class Veiculo:
         opcao = input("Insira sua opção: ")
         if opcao == "1":
             self.cadastrar()
+            print("Veículo cadastrado com sucesso")
         if opcao == "2":
             self.listar_tudo()
             #mostra todos os veículos armazenados no arquivo, instanciando cada objeto e chamando o método exibe_dados()
         if opcao == "3":
             self.listar_cor()
             #Listar por cor: pede para o usuário informar uma cor, e exibe todos os dados dos veículos com a cor informada
-        '''if opcao == "4":
-            #Listar por preço: pede para o usuário informar um preço inicial e um final, e exibe todos os dados dos veículos com o preço dentro da faixa informada
-        else:
-            print("Opção Inválida, tente novamente!")'''
+        if opcao == "4":
+            self.listar_preco()
+        
     
     def cadastrar(self):
         print("Vamos cadastrar seu veículo")
@@ -82,6 +82,24 @@ class Veiculo:
         if cont==0:
             print("Nos registros não há veículos com esta cor!")
 
+    def listar_preco(self):
+        cont=0
+        preco_min = float(input("Insira o valor mínimo na sua busca de carros: R$"))
+        preco_max = float(input("Insira o valor máximo na sua busca de carros: R$"))
+        arq = open('veiculos.txt')
+        arq.readline() # Descarta o cabeçalho do arquivo
+        linha = arq.readline()
+        while linha != "":
+            self.deserializar(linha)
+            if (self._preco >= preco_min) & (self._preco <= preco_max):
+                cont+=1
+                self.exibe_dados()
+            linha = arq.readline()
+            print("")
+        arq.close()
+        if cont==0:
+            print("Nos registros não há veículos entre essa faixa de valores")
+
 
     def exibe_dados(self):
         print('Código:', self._codigo)
@@ -99,6 +117,9 @@ if __name__ == '__main__':
     while V:
         v = Veiculo()
         v.menu()
+        cont = input("Deseja continuar: (S/N) ")
+        if cont in "Nn":
+            V = False
     '''arq = open('veiculos.txt')
     arq.readline() # Descarta o cabeçalho
     v = Veiculo(arq.readline())

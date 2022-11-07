@@ -1,3 +1,4 @@
 codigo    fabricante    ano    cor    modelo    preco
-1    1    1    1    branco    1.0
-1    1    1    1    vermelho    1.0
+1    1    1    1    1    50.0
+1    1    1    1    1    100.0
+1    1    1    1    1    30.0
