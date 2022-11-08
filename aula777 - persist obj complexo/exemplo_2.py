@@ -65,3 +65,6 @@ if __name__ == '__main__':
 
   for pessoa in pessoas:
       pessoa.exibe_dados() # Exibe os dados dos objetos
+    
+  print(pets)
+  print(pessoas)

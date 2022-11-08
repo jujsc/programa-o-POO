@@ -48,3 +48,6 @@ if __name__ == '__main__':
     for pet in pets:
         arq.write(pet.serializar())
     arq.close()
+
+    print(pets)
+    print(pessoas)

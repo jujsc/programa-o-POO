@@ -13,19 +13,24 @@ class Pessoa:
     
     def set_pet(self,pet):
         self._pets.append(pet)
-    #faze akgo como se fosse um for para pets, #pets append in the set pets
-    def get_name(self):
+
+    def get_nome(self):
         return self._nome
 
     def serializar(self):
-        return f'\n{self._id()};{self._nome};{self._sexo};{self._pets}'
+        ids= []
+        for pet in self._pets: 
+            ids.append(pet.get_id())
+        #ids
+        
+        return f'\n{self._id};{self._nome};{self._sexo};{ids}'
 
     def deserializar(self, linha):
         dados = linha.split(';')
         self._id = int(dados[0])
         self._nome = dados[1]
         self._sexo = dados[2]
-        self._pet = list(localiza_pet(int(dados[3])))
+        self._pets = pets(localiza_pet(int(dados[3])))
 
     def exibe_dados(self):
         print('* Pessoa *')
@@ -43,14 +48,14 @@ class Pessoa:
         print()
 
 class Pet:
-    def __init__(self, id, nome, sexo, tipo):
+    def __init__(self, id=None, nome=None, sexo=None, tipo=None):
         self._id = id
         self._nome = nome
         self._sexo = sexo
         self._tipo = tipo
 
     def serializar(self):
-        return f'\n{self._id()};{self._nome};{self._sexo};{self._tipo}'
+        return f'\n{self._id};{self._nome};{self._sexo};{self._tipo}'
 
     def deserializar(self, linha):
         dados = linha.split(';')
@@ -107,7 +112,8 @@ def menu():
     return opcao
 
 if __name__ == '__main__':
-    pets = pessoas = []
+    pets = []
+    pessoas = []
     id1 = id2 = 0
     escolha = ''
     while escolha != "8":
@@ -144,20 +150,28 @@ if __name__ == '__main__':
                 pessoa.exibe_dados()
                 print()
         if escolha == "5":
-            tipo_informado = input("Qual tipo de pet deseja ver: \n")
-            for pessoa in pessoas:
-                if tipo_informado == pet.get_tipo():
-                    print("Tipo de pet", tipo_informado)
-                    print("Nome pet:", pet.get_nome()," - Nome pessoa", pessoa.get_name())
+            tipo = input("Qual tipo de pet deseja ver: \n")
+            for pet in pets:
+                if tipo == pet.get_tipo():
+                    print("Tipo de pet", tipo)
+                    print("Nome pet:", pet.get_nome())
+                    print("Nome pessoa:", pessoa.get_nome())
         if escolha == "6":
-            arq = open('veiculos.txt', 'w')
-            arq.write('Nome;Sexo;Pet')
+            arq = open('pessoas.txt', 'w')
+            arq.write('Id;Nome;Sexo;PetsId')
             for pessoa in pessoas:
                 arq.write(pessoa.serializar())
             arq.close()
+            arq2 = open('pets.txt', 'w')
+            arq2.write('Id;Nome;Sexo;Tipo')
+            for pet in pets:
+                arq2.write(pet.serializar())
+            arq2.close()
         if escolha == "7":
-            if os.path.isfile(arq):
-                arq = open('veiculos.txt', 'r' )
+            arq = 'pessoas.txt'
+            arq2 = 'pets.txt'
+            if os.path.isfile(arq) & os.path.isfile(arq2):
+                arq = open('pessoas.txt', 'r' )
                 linha = arq.readline()
                 linha = arq.readline()
                 while linha != '':
@@ -166,4 +180,13 @@ if __name__ == '__main__':
                     pessoas.append(pessoa)
                     linha = arq.readline()
                 arq.close()
+                arq2 = open('pets.txt', 'r' )
+                linha = arq2.readline()
+                linha = arq2.readline()
+                while linha != '':
+                    pet = Pet()
+                    pet.deserializar(linha)
+                    pets.append(pet)
+                    linha = arq2.readline()
+                arq2.close()
         
