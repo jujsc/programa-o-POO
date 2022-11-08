@@ -1,0 +1,6 @@
+codigo	fabricante	modelo	ano	cor	preco
+11	1	1	1	1	1
+1    1    111    1    1    11.0
+1    1    1    1    1    1.0
+11    1    1    1    1    1.0
+1    1    1    1    branco    100.0

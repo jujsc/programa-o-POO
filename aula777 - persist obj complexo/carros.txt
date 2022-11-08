@@ -1,0 +1,1 @@
+codigo	fabricante	modelo	ano	cor	preco
