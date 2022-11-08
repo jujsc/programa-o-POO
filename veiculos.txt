@@ -1,4 +1,1 @@
-codigo    fabricante    ano    cor    modelo    preco
-1    1    1    1    1    50.0
-1    1    1    1    1    100.0
-1    1    1    1    1    30.0
+Nome;Sexo;Pet

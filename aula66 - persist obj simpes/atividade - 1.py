@@ -1,4 +1,3 @@
-# falta implementar por preço e por cor
 class Veiculo:
     def __init__(self ):
         self._codigo = ""
